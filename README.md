@@ -16,8 +16,50 @@ STEP-4: Else subtract the key from the plain text.
 STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <ctype.h>
+
+void caesarCipher(char* text, int shift) {
+    for (int i = 0; text[i] != '\0'; i++) {
+        char ch = text[i];
+        
+ 
+        if (isupper(ch)) {
+            ch = (ch + shift - 'A') % 26 + 'A';
+        }
+        
+        else if (islower(ch)) {
+            ch = (ch + shift - 'a') % 26 + 'a';
+        }
+
+        text[i] = ch;
+    }
+}
+
+int main() {
+    char text[100];
+    int shift;
+
+   
+    printf("Enter a plaintext: ");
+    fgets(text, sizeof(text), stdin);
+
+    printf("Enter shift value: ");
+    scanf("%d", &shift);
+
+  
+    caesarCipher(text, shift);
+
+  
+    printf("Ciphertext: %s\n", text);
+
+    return 0;
+}
+```
 
 ## OUTPUT:
+<img width="451" height="210" alt="image" src="https://github.com/user-attachments/assets/f2ed6c89-61d5-425a-84a9-9ed1139d135d" />
 
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.
